@@ -6,6 +6,7 @@ import "./globals.css"
 // Remova a importação SessionProvider
 // - import { SessionProvider } from "next-auth/react"
 import { Toaster } from "@/components/ui/toaster" // Para os toasts
+import { WhatsAppFloatingButton } from "@/components/whatsapp-floating-button"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,7 +32,8 @@ export default function ClientLayout({
         {/* Remova o SessionProvider */}
         {/* - <SessionProvider> */}
         {children}
-        <Toaster /> {/* Adicione o Toaster aqui */}
+        <Toaster />
+        <WhatsAppFloatingButton />
         {/* - </SessionProvider> */}
       </body>
     </html>
