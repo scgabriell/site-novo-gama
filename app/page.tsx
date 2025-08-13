@@ -13,19 +13,13 @@ import {
   Trophy,
   Plus,
   Star,
-  Clock,
-  Award,
   CheckCircle,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
-// Remova a importação dinâmica direta do GoogleCalendarScheduler daqui
-// import dynamic from "next/dynamic" // Não é mais necessário aqui
-
-// Remova a importação do wrapper do Google Calendar
-// - import { ContactSchedulerWrapper } from "@/components/contact-scheduler-wrapper"
+import Link from "next/link"
 
 export default function Home() {
   const services = [
@@ -113,7 +107,7 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
-              Fisio Alice Gama
+              Instituto Gama
             </h1>
             <nav className="hidden md:flex space-x-8">
               <a href="#inicio" className="text-gray-700 hover:text-blue-600 transition-colors">
@@ -122,8 +116,14 @@ export default function Home() {
               <a href="#servicos" className="text-gray-700 hover:text-blue-600 transition-colors">
                 Serviços
               </a>
-              <a href="#sobre" className="text-gray-700 hover:text-blue-600 transition-colors">
-                Sobre
+              <Link href="/quem-somos" className="text-gray-700 hover:text-blue-600 transition-colors">
+                Quem Somos
+              </Link>
+              <Link href="/nossa-unidade" className="text-gray-700 hover:text-blue-600 transition-colors">
+                Nossa Unidade
+              </Link>
+              <a href="#contato" className="text-gray-700 hover:text-blue-600 transition-colors">
+                Contato
               </a>
             </nav>
             <Button className="md:hidden" variant="ghost" size="sm">
@@ -140,15 +140,15 @@ export default function Home() {
             <div className="flex-1 text-center lg:text-left">
               <Badge className="mb-4 bg-blue-50 text-blue-700 hover:bg-blue-50">Fisioterapia Especializada</Badge>
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                Bem-vindo(a) à{" "}
+                Bem-vindo(a) ao{" "}
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 bg-clip-text text-transparent">
-                  Fisio Alice Gama
+                  Instituto Gama
                 </span>
               </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Com paixão pela reabilitação e bem-estar, ofereço atendimento fisioterapêutico personalizado para você
-                recuperar seu movimento e qualidade de vida. Minha missão é entender suas necessidades e criar um plano
-                de tratamento eficaz.
+                Com paixão pela reabilitação e bem-estar, oferecemos atendimento fisioterapêutico personalizado para
+                você recuperar seu movimento e qualidade de vida. Nossa missão é entender suas necessidades e criar um
+                plano de tratamento eficaz.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button
@@ -173,15 +173,15 @@ export default function Home() {
               <div className="relative">
                 <div className="w-80 h-80 bg-gradient-to-br from-blue-300 via-teal-300 to-green-300 rounded-full opacity-30 absolute -top-4 -left-4 animate-pulse"></div>
                 <Image
-                  src="/images/alice-gama.png"
-                  alt="Alice Gama - Fisioterapeuta"
-                  width={300}
+                  src="/images/logo-instituto-gama.avif"
+                  alt="Instituto Gama - Logo"
+                  width={400}
                   height={300}
                   priority
                   placeholder="blur"
                   blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                  className="rounded-full shadow-2xl relative z-10"
-                  sizes="(max-width: 768px) 250px, 300px"
+                  className="rounded-lg shadow-2xl relative z-10"
+                  sizes="(max-width: 768px) 300px, 400px"
                 />
               </div>
             </div>
@@ -193,7 +193,7 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Por que escolher a Fisio Alice Gama?</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Por que escolher o Instituto Gama?</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Comprometida com sua recuperação e bem-estar, oferecemos o melhor em fisioterapia
             </p>
@@ -250,50 +250,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="sobre" className="py-20 bg-white">
+      {/* About CTA Section */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <Badge className="mb-4 bg-blue-50 text-blue-700 hover:bg-blue-50">Sobre a Profissional</Badge>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Alice Gama</h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Fisioterapeuta formada com mais de 10 anos de experiência, especializada em diversas técnicas de
-                reabilitação. Minha paixão é ajudar pessoas a recuperarem sua qualidade de vida através de tratamentos
-                personalizados e eficazes.
-              </p>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <Award className="h-5 w-5 text-purple-500" />
-                  <span className="text-gray-700">Formação em Fisioterapia - UNIFESP</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Award className="h-5 w-5 text-purple-500" />
-                  <span className="text-gray-700">Especialização em RPG</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Award className="h-5 w-5 text-purple-500" />
-                  <span className="text-gray-700">Certificação em Pilates</span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Clock className="h-5 w-5 text-blue-500" />
-                  <span className="text-gray-700">Mais de 10 anos de experiência</span>
-                </div>
-              </div>
-            </div>
-            <div className="flex justify-center">
-              <Image
-                src="/images/alice-gama.png"
-                alt="Alice Gama - Fisioterapeuta Profissional"
-                width={400}
-                height={400}
-                loading="lazy"
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                className="rounded-lg shadow-lg"
-                sizes="(max-width: 768px) 300px, 400px"
-              />
-            </div>
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Conheça Nossa História</h2>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              Descubra como o Instituto Gama se tornou referência em fisioterapia especializada
+            </p>
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 hover:from-blue-600 hover:via-purple-600 hover:to-teal-600"
+              asChild
+            >
+              <Link href="/quem-somos">Saiba Mais Sobre Nós</Link>
+            </Button>
           </div>
         </div>
       </section>
@@ -351,7 +322,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-1">E-mail</h3>
-                  <p className="text-blue-100">contato@fisioalicegama.com</p>
+                  <p className="text-blue-100">contato@institutogama.com</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
@@ -371,7 +342,7 @@ export default function Home() {
               </div>
               <div className="flex space-x-4 pt-4">
                 <a
-                  href="https://www.instagram.com/fisioalicegama"
+                  href="https://www.instagram.com/saudeinstitutogama"
                   className="flex items-center space-x-2 bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg transition-colors"
                 >
                   <Instagram className="h-5 w-5" />
@@ -408,9 +379,9 @@ export default function Home() {
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h3 className="text-xl font-bold mb-2">Fisio Alice Gama</h3>
+            <h3 className="text-xl font-bold mb-2">Instituto Gama</h3>
             <p className="text-gray-400 mb-4">Fisioterapia Especializada</p>
-            <p className="text-gray-500 text-sm">&copy; 2025 Fisio Alice Gama. Todos os direitos reservados.</p>
+            <p className="text-gray-500 text-sm">&copy; 2025 Instituto Gama. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
