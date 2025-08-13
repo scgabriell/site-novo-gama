@@ -8,23 +8,23 @@ import Link from "next/link"
 export default function NossaUnidade() {
   const facilities = [
     {
-      title: "Ambiente Acolhedor",
-      description: "Espaços pensados para proporcionar conforto e tranquilidade durante seu tratamento.",
+      title: "Área de Tratamento Principal",
+      description: "Espaço amplo e bem equipado para diversos tipos de tratamento fisioterapêutico.",
       image: "/images/instituto-1.avif",
     },
     {
-      title: "Equipamentos Modernos",
-      description: "Tecnologia de ponta para garantir os melhores resultados em sua reabilitação.",
+      title: "Recepção Acolhedora",
+      description: "Ambiente confortável e moderno para receber nossos pacientes com carinho.",
       image: "/images/instituto-2.avif",
     },
     {
-      title: "Salas Especializadas",
-      description: "Ambientes dedicados para cada tipo de tratamento, com total privacidade.",
+      title: "Sala de Fisioterapia Especializada",
+      description: "Equipamentos modernos e ambiente profissional para tratamentos específicos.",
       image: "/images/instituto-3.avif",
     },
     {
-      title: "Estrutura Completa",
-      description: "Instalações amplas e bem equipadas para atender todas as suas necessidades.",
+      title: "Consultório Completo",
+      description: "Sala de atendimento individual com todos os recursos necessários.",
       image: "/images/instituto-4.avif",
     },
   ]
@@ -127,6 +127,41 @@ export default function NossaUnidade() {
         </div>
       </section>
 
+      {/* Galeria de Fotos */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Nossas Instalações</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Ambientes projetados para oferecer o melhor em conforto, segurança e eficácia nos tratamentos.
+            </p>
+          </div>
+
+          {/* Grid de Imagens Reais */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {facilities.map((facility, index) => (
+              <Card key={index} className="group overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="relative h-64 md:h-80">
+                  <Image
+                    src={facility.image || "/placeholder.svg"}
+                    alt={facility.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+
+                  {/* Overlay com informações */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                    <h3 className="text-white font-bold text-lg mb-2">{facility.title}</h3>
+                    <p className="text-gray-200 text-sm">{facility.description}</p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Localização */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -183,45 +218,8 @@ export default function NossaUnidade() {
         </div>
       </section>
 
-      {/* Galeria de Fotos */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Nossas Instalações</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Ambientes projetados para oferecer o melhor em conforto, segurança e eficácia nos tratamentos
-            </p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {facilities.map((facility, index) => (
-              <Card
-                key={index}
-                className="border-0 shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden"
-              >
-                <div className="relative h-64 md:h-80">
-                  <Image
-                    src={facility.image || "/placeholder.svg"}
-                    alt={facility.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <h3 className="text-xl font-bold mb-2">{facility.title}</h3>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <p className="text-gray-600 leading-relaxed">{facility.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Diferenciais */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Nossos Diferenciais</h2>
