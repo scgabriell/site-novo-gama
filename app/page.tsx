@@ -24,6 +24,7 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { AnimateOnScroll, StaggerContainer } from "@/components/animate-on-scroll"
+import { GoogleReviews } from "@/components/google-reviews"
 
 export default function Home() {
   const services = [
@@ -310,8 +311,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Google Reviews Section */}
+      <GoogleReviews />
+
       {/* Testimonials Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <AnimateOnScroll animation="fade-up">
             <div className="text-center mb-16">
