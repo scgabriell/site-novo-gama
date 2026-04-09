@@ -24,7 +24,7 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { AnimateOnScroll, StaggerContainer } from "@/components/animate-on-scroll"
-import { GoogleReviews } from "@/components/google-reviews"
+import { GoogleReviewsAdvanced } from "@/components/google-reviews-advanced"
 
 export default function Home() {
   const services = [
@@ -312,7 +312,7 @@ export default function Home() {
       </section>
 
       {/* Google Reviews Section */}
-      <GoogleReviews />
+      <GoogleReviewsAdvanced />
 
       {/* Testimonials Section */}
       <section className="py-20 bg-white">

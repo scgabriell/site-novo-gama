@@ -1,91 +1,207 @@
-# Configuração de Google Reviews
+# Integração Google Reviews - Guia Completo
 
-Este guia ajudará você a configurar as avaliações do Google na página inicial do Instituto Gama.
+## 📋 Visão Geral
 
-## Como Funciona
+Este projeto está configurado para exibir as avaliações do Google Maps do Instituto Gama diretamente no site. As avaliações são sincronizadas em tempo real via API do Google Places, com cache inteligente de 6 horas.
 
-O componente `GoogleReviews` busca as avaliações do seu estabelecimento no Google Maps e as exibe de forma elegante na página inicial.
+## 🔄 Como Funciona
 
-## Passos para Configurar
+```
+Frontend (React)
+    ↓
+API Route (/api/google-reviews)
+    ↓
+Google Places API
+    ↓
+Cache (6 horas)
+    ↓
+Display de Avaliações
+```
 
-### 1. Obter a API Key do Google
+1. **Frontend**: Componentes React que buscam e exibem as avaliações
+2. **Backend**: Rota API que gerencia chamadas ao Google Places API com cache
+3. **Cache**: Reduz chamadas desnecessárias e melhora performance
+
+## 📚 Componentes Disponíveis
+
+### `GoogleReviewsAdvanced` (Recomendado - Padrão)
+- Estatísticas com classificação média
+- Layout em grid responsivo (1, 2 ou 3 colunas)
+- Fotos de perfil dos avaliadores
+- Animações de scroll suavizadas
+- Link para ver todas as avaliações
+- Estado de carregamento com skeleton
+- Tratamento de erros elegante
+
+### `GoogleReviews` (Básico)
+- Versão simplificada
+- Grid básico de avaliações
+- Menor overhead de recursos
+
+## 🚀 Setup Passo a Passo
+
+### 1️⃣ Criar um Projeto Google Cloud
 
 1. Acesse [Google Cloud Console](https://console.cloud.google.com/)
-2. Crie um novo projeto ou selecione um existente
-3. Habilite a API "Places API":
-   - Vá para "APIs e Serviços" > "Biblioteca"
-   - Procure por "Places API"
-   - Clique em "Habilitar"
-4. Crie uma chave de API:
-   - Vá para "APIs e Serviços" > "Credenciais"
-   - Clique em "Criar Credencial" > "Chave de API"
-   - Copie a chave gerada
+2. Clique no dropdown do projeto no topo
+3. Selecione "NEW PROJECT"
+4. Nomeie como "Instituto Gama"
+5. Clique "CREATE"
 
-### 2. Obter o Place ID do Google
+### 2️⃣ Ativar Google Places API
 
-1. Acesse [Google Places Finder](https://developers.google.com/maps/documentation/places/web-service/autocomplete)
-2. Ou faça uma busca no Google Maps pelo seu estabelecimento
-3. A URL do Google Maps conterá algo como: `https://maps.app.goo.gl/...`
-4. Para obter o Place ID de forma programática:
-   - Use a [Autocomplete API](https://developers.google.com/maps/documentation/places/web-service/autocomplete)
-   - Ou busque manualmente pelo nome do estabelecimento usando:
-     ```
-     https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Instituto%20Gama&inputtype=textquery&fields=place_id&key=YOUR_API_KEY
-     ```
+1. Vá para "APIs & Services" > "Library"
+2. Procure por "Places API" 
+3. Clique em "ENABLE"
+4. Aguarde alguns segundos para ativar
 
-### 3. Adicionar as Variáveis de Ambiente
+### 3️⃣ Criar Chave de API (API Key)
 
-No painel de controle do Vercel ou no arquivo `.env.local`:
+1. Vá para "APIs & Services" > "Credentials"
+2. Clique "CREATE CREDENTIALS" > "API Key"
+3. Copie a chave exibida
+4. **Importante**: Clique no ícone de lápis para editar e configure as restrições:
+   - **Application restrictions**: Selecione "HTTP referrers (web sites)"
+   - **Website restrictions**: Adicione seus domínios (exemplo: `institutogama.com`)
+   - **API restrictions**: Selecione apenas "Places API"
+5. Clique "SAVE"
+
+### 4️⃣ Obter Google Place ID
+
+**Método Rápido (Recomendado):**
+
+1. Abra [Google Maps](https://maps.google.com)
+2. Procure por "Instituto Gama" (ou seu endereço em São Paulo)
+3. Clique no resultado da sua empresa
+4. Procure na URL ou use o [Place ID Finder](https://developers.google.com/maps/documentation/places/web-service/overview)
+
+**Método via API (Alternativo):**
+
+1. Faça uma requisição para:
+```
+https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Instituto%20Gama%20São%20Paulo&inputtype=textquery&fields=place_id&key=YOUR_API_KEY
+```
+
+2. Substitua `YOUR_API_KEY` pela sua chave
+3. No JSON retornado, procure por `place_id`
+
+### 5️⃣ Adicionar Variáveis de Ambiente
+
+Na v0, clique em **Settings** (canto superior direito) > **Vars** e adicione:
+
+```
+GOOGLE_API_KEY = sua_chave_aqui
+GOOGLE_PLACE_ID = seu_place_id_aqui
+```
+
+**Ou em `.env.local` para desenvolvimento local:**
 
 ```env
-GOOGLE_API_KEY=sua_chave_de_api_aqui
+GOOGLE_API_KEY=sua_chave_aqui
 GOOGLE_PLACE_ID=seu_place_id_aqui
 ```
 
-### 4. Testar a Integração
+### 6️⃣ Teste a Integração
 
-1. Faça deploy das alterações
-2. Acesse a página inicial
-3. A seção de avaliações do Google deverá aparecer com as avaliações reais
+1. Reinicie o servidor: `npm run dev`
+2. Acesse http://localhost:3000
+3. Role até a seção "O que nossos pacientes dizem"
+4. As avaliações reais devem aparecer em alguns segundos
 
-## Troubleshooting
+## ✅ Verificando se Está Funcionando
 
-### Avaliações não aparecem
+### No Console do Navegador (F12):
+- Abra a aba "Network"
+- Procure por `api/google-reviews`
+- Deve retornar status **200** com as avaliações
 
-1. **Verifique se as variáveis de ambiente estão configuradas corretamente**
-   - Vá para o painel Vercel
-   - Settings > Environment Variables
-   - Confirme que `GOOGLE_API_KEY` e `GOOGLE_PLACE_ID` estão presentes
+### No Console do Servidor (Terminal):
+- Sem erros relacionados a reviews
+- Se estiver funcionando: Avaliações carregadas com sucesso
 
-2. **Verifique os logs da API**
-   - Abra o console do navegador (F12)
-   - Vá para a aba Network
-   - Procure por requisições para `/api/google-reviews`
-   - Verifique se a resposta contém erros
+## 🎨 Customização
 
-3. **Confirme que o Google Place ID está correto**
-   - Use a ferramenta "Place ID Finder" do Google
-   - Garanta que é para a localização correta
+### Alterar número de avaliações exibidas:
 
-4. **Verifique os limites da API**
-   - A API do Google tem limites de requisições
-   - O componente cacheia as avaliações por 6 horas para evitar isso
+Em `components/google-reviews-advanced.tsx`, linha ~36:
+```typescript
+setReviews(data.reviews.slice(0, 6)) // Mude 6 para outro número
+```
 
-## Comportamento de Fallback
+### Alterar cores e estilos:
 
-Se as credenciais não estiverem configuradas ou houver erro na API do Google, o componente exibirá **depoimentos fictícios de demonstração**. Isso permite que a página funcione normalmente mesmo sem a integração, mas você receberá um aviso no console.
+Em `components/google-reviews-advanced.tsx`:
+- `from-blue-50 to-indigo-50` - Gradiente de fundo
+- `bg-blue-600 hover:bg-blue-700` - Botão CTA
+- Altere conforme sua marca
 
-## Cache
+### Alterar duração do cache:
 
-As avaliações são armazenadas em cache por **6 horas** para:
-- Reduzir o uso de quota da API
-- Melhorar a performance
-- Evitar limites de requisições
+Em `app/api/google-reviews/route.ts`, linha ~9:
+```typescript
+const CACHE_DURATION = 6 * 60 * 60 * 1000 // Mude 6 para horas desejadas
+```
 
-## Limite de Avaliações
+## 🐛 Troubleshooting
 
-O componente exibe até **6 avaliações** da API do Google. Se seu negócio tem mais, elas serão exibidas em rotação.
+| Problema | Solução |
+|----------|---------|
+| **"Invalid API Key"** | Copie corretamente, aguarde 5 min para propagação |
+| **"Invalid Place ID"** | Obtenha novamente via Google Maps ou API Places |
+| **Reviews não atualizam** | Cache de 6h está ativo. Aguarde ou reinicie servidor |
+| **Erro CORS** | Verifique HTTP referrers nas credenciais |
+| **Sem avaliações visíveis** | Confirme se tem reviews públicos no Google Maps |
+| **Erro 403** | Places API pode não estar ativada ou chave inválida |
 
-## Suporte
+## 📊 Dados de Demonstração
 
-Para mais informações sobre a Google Places API, consulte a [documentação oficial](https://developers.google.com/maps/documentation/places/web-service/overview).
+Se as credenciais não estiverem configuradas, o sistema exibe dados fictícios:
+
+```javascript
+{
+  author_name: "Maria Silva",
+  rating: 5,
+  text: "Excelente atendimento! Fisioterapeutas muito profissionais...",
+  relative_time_description: "há 1 semana"
+}
+```
+
+Isso permite visualizar como aparecerão as avaliações reais.
+
+## 💰 Custo
+
+- Primeiros **200 requests/mês**: Gratuito
+- Acima disso: ~$7 por 1000 requests
+- O cache de 6 horas reduz drasticamente o uso
+- [Consulte pricing oficial](https://cloud.google.com/maps-platform/pricing)
+
+## 🔐 Segurança
+
+✅ **Boas práticas implementadas:**
+- Chave de API armazenada no servidor (`.env`)
+- Chamadas feitas do backend, não frontend
+- Restrições HTTP referrer ativas
+- Restrição de API apenas para Places
+- Sem exposição de dados sensíveis
+
+## 📱 Responsividade
+
+O componente é totalmente responsivo:
+- **Mobile**: 1 coluna
+- **Tablet**: 2 colunas  
+- **Desktop**: 3 colunas
+
+## 🔗 Links Úteis
+
+- [Google Cloud Console](https://console.cloud.google.com/)
+- [Google Places API Docs](https://developers.google.com/maps/documentation/places/web-service/overview)
+- [Find Place ID](https://maps.google.com)
+- [Pricing](https://cloud.google.com/maps-platform/pricing)
+
+## 📝 Notas Finais
+
+- Avaliações atualizam a cada 6 horas (cache)
+- Fotos de perfil são otimizadas (10x10px)
+- Componente é totalmente acessível (ARIA labels)
+- Suporta múltiplos idiomas via Google Places
+- O site funciona mesmo sem a integração (fallback para mock data)
