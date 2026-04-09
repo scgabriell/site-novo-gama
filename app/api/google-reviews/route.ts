@@ -78,32 +78,20 @@ export async function GET() {
     }
 
     // Buscar dados reais do Google Places API
-    const url = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${GOOGLE_PLACE_ID}&fields=reviews,rating,user_ratings_total&key=${GOOGLE_API_KEY}&language=pt-BR`
-
-    console.log("[v0] Fetching from Google Places API...")
-    console.log("[v0] Place ID:", GOOGLE_PLACE_ID)
-    console.log("[v0] API Key (first 10 chars):", GOOGLE_API_KEY?.substring(0, 10) + "...")
+    const url = `https://maps.googleapis.com/maps/api/place/details/json?placeid=${GOOGLE_PLACE_ID}&fields=reviews,rating,user_ratings_total&key=${GOOGLE_API_KEY}&language=pt-BR`
 
     const response = await fetch(url)
 
     if (!response.ok) {
-      console.error("[v0] HTTP Error:", response.status, response.statusText)
       throw new Error(`Google Places API error: ${response.statusText}`)
     }
 
     const data = await response.json()
 
-    console.log("[v0] API Response status:", data.status)
-    console.log("[v0] API Response error_message:", data.error_message || "none")
-
     if (data.status !== "OK") {
-      // Log detalhado do erro
-      console.error("[v0] Google Places API Error:", data.status, data.error_message || "")
-      
-      // Se der erro, retornar mock data ao invés de falhar
-      console.warn("[v0] Returning mock data due to API error")
-      const mockData = getMockData(now)
-      return NextResponse.json(mockData)
+      // Se der erro da API, retornar mock data ao invés de falhar
+      console.warn("[Google Reviews] API returned:", data.status, "- Using mock data")
+      return NextResponse.json(getMockData(now))
     }
 
     const reviews = data.result?.reviews || []
