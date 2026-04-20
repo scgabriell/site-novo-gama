@@ -15,6 +15,10 @@ import {
   Star,
   CheckCircle,
   ArrowRight,
+  Zap,
+  Wind,
+  Flower2,
+  Waves,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -74,6 +78,42 @@ export default function Home() {
       title: "Fisioterapia Esportiva",
       description:
         "Prevenção e tratamento de lesões em atletas, amadores ou profissionais. Recuperação rápida e segura para o retorno ao esporte, com foco em performance e prevenção de reincidências.",
+    },
+    {
+      icon: Zap,
+      title: "Fisioterapia Pélvica",
+      description:
+        "Especialidade que trata disfunções do assoalho pélvico, incontinência urinária, dores pélvicas e complicações pós-parto. Melhora significativa na qualidade de vida e bem-estar.",
+    },
+    {
+      icon: Wind,
+      title: "Yoga",
+      description:
+        "Prática milenar que integra movimentos, respiração e meditação. Aumenta a flexibilidade, reduz o estresse, melhora a postura e promove equilíbrio físico e mental.",
+    },
+    {
+      icon: Heart,
+      title: "Massagem Relaxante",
+      description:
+        "Técnica de relaxamento muscular que alivia tensões, reduz estresse e ansiedade. Promove circulação sanguínea, desintoxicação e sensação geral de bem-estar e revitalização.",
+    },
+    {
+      icon: Flower2,
+      title: "Liberação Miofascial",
+      description:
+        "Técnica especializada para liberar tensões na fáscia muscular, melhorando a mobilidade e reduzindo dores crônicas. Ideal para quem sofre com limitações de movimento e rigidez muscular.",
+    },
+    {
+      icon: Stethoscope,
+      title: "Fisioterapia Ortopédica",
+      description:
+        "Especialidade voltada para o tratamento de lesões ortopédicas, articulares e pós-cirúrgicas. Reabilitação eficiente com foco em restaurar função, movimento e qualidade de vida.",
+    },
+    {
+      icon: Wheelchair,
+      title: "Fisioterapia Neurológica",
+      description:
+        "Atendimento especializado para pacientes com problemas neurológicos. Restaura mobilidade, equilíbrio e independência através de técnicas específicas e reabilitação personalizada.",
     },
   ]
 
