@@ -36,84 +36,91 @@ export default function Home() {
       title: "RPG (Reeducação Postural Global)",
       description:
         "Método fisioterapêutico para identificar e corrigir desequilíbrios musculares, aliviando dores e melhorando a postura. Ideal para dores na coluna, hérnias de disco e má postura.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-21%20at%2016.18.13-Ckp2UID8wdDH4H3fXtEBEmvnjKYSLk.jpeg",
     },
     {
       icon: Dumbbell,
       title: "Pilates",
       description:
         "Fortaleça seu corpo de forma integrada. O Pilates melhora a flexibilidade, o equilíbrio, a coordenação e a consciência corporal, sendo excelente para prevenção de lesões e reabilitação.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-21%20at%2015.23.57-dK0HqIe7ID7fT8gsHDvVDbez61lcCU.jpeg",
     },
     {
       icon: Stethoscope,
       title: "Reabilitação Pós-Cirúrgica",
       description:
         "Programas personalizados para uma recuperação eficaz após cirurgias ortopédicas ou outras. Nosso foco é restaurar a função, mobilidade e força para que você retorne às suas atividades.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-21%20at%2016.23.24-5wooNdmDfQnQYZQatc1ihCOzAi8QZL.jpeg",
     },
     {
       icon: Plus,
       title: "Acupuntura",
       description:
         "Técnica milenar da Medicina Tradicional Chinesa que utiliza agulhas finas para estimular pontos específicos do corpo, aliviando dores, estresse, ansiedade e promovendo o bem-estar geral.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-21%20at%2015.52.03-IedxePf1P2wyuoPLwnP47emwRxNvgM.jpeg",
     },
     {
       icon: Heart,
       title: "Fisioterapia Respiratória",
       description:
         "Especialidade que atua na prevenção e tratamento de doenças que afetam o sistema respiratório, auxiliando na melhora da função pulmonar e qualidade de vida.",
+      image: null,
     },
     {
       icon: Baby,
       title: "Fisioterapia Pediátrica",
       description:
         "Atendimento especializado para crianças, visando o desenvolvimento motor, a correção postural e a reabilitação de condições neurológicas ou ortopédicas infantis.",
+      image: null,
     },
     {
       icon: Wheelchair,
       title: "Reabilitação Neurológica",
       description:
         "Foco na recuperação de pacientes com condições neurológicas (AVC, Parkinson, Esclerose Múltipla), buscando restaurar movimentos, equilíbrio e independência nas atividades diárias.",
-    },
-    {
-      icon: Trophy,
-      title: "Fisioterapia Esportiva",
-      description:
-        "Prevenção e tratamento de lesões em atletas, amadores ou profissionais. Recuperação rápida e segura para o retorno ao esporte, com foco em performance e prevenção de reincidências.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-21%20at%2015.49.27-ATCFeryiefmxKC1MhKDAXO0UNk9T03.jpeg",
     },
     {
       icon: Zap,
       title: "Fisioterapia Pélvica",
       description:
         "Especialidade que trata disfunções do assoalho pélvico, incontinência urinária, dores pélvicas e complicações pós-parto. Melhora significativa na qualidade de vida e bem-estar.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-21%20at%2015.23.57-dK0HqIe7ID7fT8gsHDvVDbez61lcCU.jpeg",
     },
     {
       icon: Wind,
       title: "Yoga",
       description:
         "Prática milenar que integra movimentos, respiração e meditação. Aumenta a flexibilidade, reduz o estresse, melhora a postura e promove equilíbrio físico e mental.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-21%20at%2015.21.47-7FXKWJaVyXHZY7QYIv5ONeCEo7y90q.jpeg",
     },
     {
       icon: Heart,
       title: "Massagem Relaxante",
       description:
         "Técnica de relaxamento muscular que alivia tensões, reduz estresse e ansiedade. Promove circulação sanguínea, desintoxicação e sensação geral de bem-estar e revitalização.",
+      image: null,
     },
     {
       icon: Flower2,
       title: "Liberação Miofascial",
       description:
         "Técnica especializada para liberar tensões na fáscia muscular, melhorando a mobilidade e reduzindo dores crônicas. Ideal para quem sofre com limitações de movimento e rigidez muscular.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-21%20at%2016.09.24-PuaWyjWXB5A6f8EWJKXXVBFe38jeNe.jpeg",
     },
     {
       icon: Stethoscope,
       title: "Fisioterapia Ortopédica",
       description:
         "Especialidade voltada para o tratamento de lesões ortopédicas, articulares e pós-cirúrgicas. Reabilitação eficiente com foco em restaurar função, movimento e qualidade de vida.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-21%20at%2015.34.17-THja1RLIIE5SWREk0BZSk1H2x5BSls.jpeg",
     },
     {
       icon: Wheelchair,
       title: "Fisioterapia Neurológica",
       description:
         "Atendimento especializado para pacientes com problemas neurológicos. Restaura mobilidade, equilíbrio e independência através de técnicas específicas e reabilitação personalizada.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-21%20at%2015.49.27-ATCFeryiefmxKC1MhKDAXO0UNk9T03.jpeg",
     },
   ]
 
@@ -273,15 +280,23 @@ export default function Home() {
 
               return (
                 <AnimateOnScroll key={index} animation="fade-up" delay={index * 50}>
-                  <Card className={`group h-full hover:shadow-xl transition-all duration-300 border-2 border-transparent ${color.hover} bg-white`}>
-                    <CardContent className="p-6">
-                      <div className="flex items-center mb-4">
-                        <div className={`p-3 ${color.bg} rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300`}>
-                          <service.icon className={`h-6 w-6 ${color.text}`} />
+                  <Card className={`group h-full hover:shadow-xl transition-all duration-300 border-2 border-transparent ${color.hover} bg-white flex flex-col`}>
+                    <CardContent className="p-6 flex flex-col h-full">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center leading-tight">{service.title}</h3>
+                      
+                      {service.image && (
+                        <div className="mb-4 overflow-hidden rounded-lg">
+                          <Image
+                            src={service.image}
+                            alt={service.title}
+                            width={300}
+                            height={250}
+                            className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
                         </div>
-                        <h3 className="text-lg font-semibold text-gray-900 leading-tight">{service.title}</h3>
-                      </div>
-                      <p className="text-gray-600 leading-relaxed text-sm">{service.description}</p>
+                      )}
+                      
+                      <p className="text-gray-600 leading-relaxed text-sm flex-grow">{service.description}</p>
                     </CardContent>
                   </Card>
                 </AnimateOnScroll>
