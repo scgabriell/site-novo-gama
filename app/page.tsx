@@ -60,20 +60,6 @@ export default function Home() {
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-21%20at%2015.52.03-IedxePf1P2wyuoPLwnP47emwRxNvgM.jpeg",
     },
     {
-      icon: Heart,
-      title: "Fisioterapia Respiratória",
-      description:
-        "Especialidade que atua na prevenção e tratamento de doenças que afetam o sistema respiratório, auxiliando na melhora da função pulmonar e qualidade de vida.",
-      image: null,
-    },
-    {
-      icon: Baby,
-      title: "Fisioterapia Pediátrica",
-      description:
-        "Atendimento especializado para crianças, visando o desenvolvimento motor, a correção postural e a reabilitação de condições neurológicas ou ortopédicas infantis.",
-      image: null,
-    },
-    {
       icon: Wheelchair,
       title: "Reabilitação Neurológica",
       description:
@@ -99,7 +85,7 @@ export default function Home() {
       title: "Massagem Relaxante",
       description:
         "Técnica de relaxamento muscular que alivia tensões, reduz estresse e ansiedade. Promove circulação sanguínea, desintoxicação e sensação geral de bem-estar e revitalização.",
-      image: null,
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Jv2H2QKylfmx7BskZENVcjViREq6vm.png",
     },
     {
       icon: Flower2,
